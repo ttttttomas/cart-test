@@ -1,0 +1,122 @@
+[
+    {
+      "id": "1",
+      "name": "T-Shirt",
+      "category": "Clothing",
+      "price": 19.99
+    },
+    {
+      "id": "2",
+      "name": "Jeans",
+      "category": "Clothing",
+      "price": 39.99
+    },
+    {
+      "id": "3",
+      "name": "Sneakers",
+      "category": "Footwear",
+      "price": 49.99
+    },
+    {
+      "id": "4",
+      "name": "Dress",
+      "category": "Clothing",
+      "price": 29.99
+    },
+    {
+      "id": "5",
+      "name": "Sandals",
+      "category": "Footwear",
+      "price": 24.99
+    },
+    {
+      "id": "6",
+      "name": "Hoodie",
+      "category": "Clothing",
+      "price": 34.99
+    },
+    {
+      "id": "7",
+      "name": "Jacket",
+      "category": "Clothing",
+      "price": 59.99
+    },
+    {
+      "id": "8",
+      "name": "Skirt",
+      "category": "Clothing",
+      "price": 19.99
+    },
+    {
+      "id": "9",
+      "name": "Blouse",
+      "category": "Clothing",
+      "price": 24.99
+    },
+    {
+      "id": "10",
+      "name": "Shorts",
+      "category": "Clothing",
+      "price": 14.99
+    },
+    {
+      "id": "11",
+      "name": "High Heels",
+      "category": "Footwear",
+      "price": 39.99
+    },
+    {
+      "id": "12",
+      "name": "Flip Flops",
+      "category": "Footwear",
+      "price": 9.99
+    },
+    {
+      "id": "13",
+      "name": "Cap",
+      "category": "Accessories",
+      "price": 14.99
+    },
+    {
+      "id": "14",
+      "name": "Watch",
+      "category": "Accessories",
+      "price": 89.99
+    },
+    {
+      "id": "15",
+      "name": "Sunglasses",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    {
+      "id": "16",
+      "name": "Backpack",
+      "category": "Bags",
+      "price": 29.99
+    },
+    {
+      "id": "17",
+      "name": "Handbag",
+      "category": "Bags",
+      "price": 49.99
+    },
+    {
+      "id": "18",
+      "name": "Wallet",
+      "category": "Accessories",
+      "price": 14.99
+    },
+    {
+      "id": "19",
+      "name": "Belt",
+      "category": "Accessories",
+      "price": 19.99
+    },
+    {
+      "id": "20",
+      "name": "Scarf",
+      "category": "Accessories",
+      "price": 9.99
+    }
+  ]
