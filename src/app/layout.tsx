@@ -14,10 +14,16 @@ export const metadata: Metadata = {
 export default async function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="es">
-      <body className="container m-auto grid min-h-screen grid-rows-[auto_1fr_auto] gap-8 px-4 font-sans antialiased">
+      <body className="container m-auto grid min-h-screen grid-rows-[auto_1fr_auto] gap-8 px-4">
         <CartProvider>
-          <header className="text-xl leading-[4rem] font-bold">
+          <header className="flex gap-10 text-xl leading-[4rem] font-bold">
             <Link href="/">cart-test</Link>
+            <Link className="underline" href="/register">
+              Register
+            </Link>
+            <Link className="underline" href="/login">
+              Login
+            </Link>
           </header>
           {children}
           <footer className="text-center leading-[4rem] opacity-70">cart-test</footer>

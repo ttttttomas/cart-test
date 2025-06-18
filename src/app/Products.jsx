@@ -1,5 +1,5 @@
 "use client";
-import {useContext, useState} from "react";
+import {useContext} from "react";
 
 import {CartContext} from "./CartContext";
 

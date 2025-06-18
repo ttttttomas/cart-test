@@ -1,7 +1,7 @@
 "use client";
 import {useContext} from "react";
 
-import {ProductType} from "../types";
+import {ProductType} from "../../types";
 import {CartContext} from "../CartContext";
 
 export default function CartCheckout() {
@@ -55,7 +55,7 @@ export default function CartCheckout() {
         <button
           className="mt-4 w-full cursor-pointer rounded-lg bg-blue-600 px-4 py-2 text-white transition duration-300 hover:bg-blue-700"
           type="button"
-          onClick={() => alert("Pedido realizado!")}
+          onClick={() => alert("Pedido realizado! su total a pagar es de $" + total.toFixed(2))}
         >
           Realizar Pedido
         </button>

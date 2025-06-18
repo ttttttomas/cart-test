@@ -1,6 +1,6 @@
 import {useContext} from "react";
 
-import {ProductType} from "./types";
+import {ProductType} from "../types";
 import {CartContext} from "./CartContext";
 
 export default function Checkout() {
