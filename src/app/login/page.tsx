@@ -1,26 +1,34 @@
 "use client";
 import {useState} from "react";
 
+import useAuth from "../hooks/useAuth";
+
 export default function LoginPage() {
-  const [email, setEmail] = useState("");
+  const {login, token, error} = useAuth();
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log({email: email, password: password});
+    console.log({username, password});
+
+    login({username, password});
   };
 
   return (
     <form className="mx-auto flex max-w-32 flex-col items-center gap-4" onSubmit={handleSubmit}>
       <h1 className="text-3xl font-bold">Login</h1>
-
+      {token && <p>Token: {token}</p>}
+      {error && <p>{error}</p>}
       <input
+        required
         className="border border-gray-500 p-2"
         placeholder="Email"
         type="text"
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => setUsername(e.target.value)}
       />
       <input
+        required
         className="border border-gray-500 p-2"
         placeholder="Password"
         type="password"
