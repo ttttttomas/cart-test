@@ -4,13 +4,13 @@ import {useState} from "react";
 import useAuth from "../hooks/useAuth";
 
 export default function LoginPage() {
-  const {login, token, error} = useAuth();
+  const {login} = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log({username, password});
+    // console.log({username, password});
 
     login({username, password});
   };
@@ -18,8 +18,8 @@ export default function LoginPage() {
   return (
     <form className="mx-auto flex max-w-32 flex-col items-center gap-4" onSubmit={handleSubmit}>
       <h1 className="text-3xl font-bold">Login</h1>
-      {token && <p>Token: {token}</p>}
-      {error && <p>{error}</p>}
+      {/* {userID && <p>ID del Usuario: {userID}</p>} */}
+      {/* {error && <p className="text-nowrap">{error}</p>} */}
       <input
         required
         className="border border-gray-500 p-2"

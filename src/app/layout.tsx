@@ -3,8 +3,11 @@ import type {Metadata} from "next";
 import Link from "next/link";
 
 import {CartProvider} from "./CartContext";
+import {UserProvider} from "./context/UserContext";
+import UserStatus from "./components/UserStatus";
 
 import "./globals.css";
+import useAuth from "./hooks/useAuth";
 
 export const metadata: Metadata = {
   title: "cart-test",
@@ -15,19 +18,26 @@ export default async function RootLayout({children}: {children: React.ReactNode}
   return (
     <html lang="es">
       <body className="container m-auto grid min-h-screen grid-rows-[auto_1fr_auto] gap-8 px-4">
-        <CartProvider>
-          <header className="flex gap-10 text-xl leading-[4rem] font-bold">
-            <Link href="/">cart-test</Link>
-            <Link className="underline" href="/register">
-              Register
-            </Link>
-            <Link className="underline" href="/login">
-              Login
-            </Link>
-          </header>
-          {children}
-          <footer className="text-center leading-[4rem] opacity-70">cart-test</footer>
-        </CartProvider>
+        <UserProvider>
+          <CartProvider>
+            <header className="flex items-center justify-between gap-10 text-xl leading-[4rem] font-bold">
+              <div className="flex items-center gap-5">
+                <Link href="/">cart-test</Link>
+                <Link className="underline" href="/register">
+                  Register
+                </Link>
+                <Link className="underline" href="/login">
+                  Login
+                </Link>
+              </div>
+              <div>
+                <UserStatus />
+              </div>
+            </header>
+            {children}
+            <footer className="text-center leading-[4rem] opacity-70">cart-test</footer>
+          </CartProvider>
+        </UserProvider>
       </body>
     </html>
   );

@@ -1,39 +1,66 @@
 import axios from "axios";
-import {useState} from "react";
-import {useRouter} from "next/navigation";
 
-type Login = {
+type Auth = {
   username: string;
   password: string;
 };
 
 export default function useAuth() {
-  const router = useRouter();
-  const [token, setToken] = useState("");
-  const [error, setError] = useState("");
-
-  const login = async ({username, password}: Login) => {
-    const response = await axios.post(
-      "https://api-burgerli.iwebtecnology.com/token",
-      {username, password},
-      {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+  const login = async ({username, password}: Auth) => {
+    try {
+      const response = await axios.post(
+        "https://api-burgerli.iwebtecnology.com/token",
+        {username, password},
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          withCredentials: true,
         },
-      },
-    );
+      );
 
-    if (response.status === 200) {
-      console.log(response);
-      setToken(response.data.access_token);
-      router.push("/");
+      if (response.status === 200) {
+        console.log(response);
+      }
+    } catch (error) {
+      console.log(error);
+      if (axios.isAxiosError(error) && error.response) {
+        if (error.response.status === 400) {
+          console.error("Invalid username or password");
+        } else {
+          console.error("An error occurred during login");
+        }
+      } else {
+        console.error("An unexpected error occurred");
+      }
     }
-    if (response.status === 401) {
-      console.log(response);
+  };
+  const register = async ({username, password}: Auth) => {
+    try {
+      const response = await axios.post(
+        "https://api-burgerli.iwebtecnology.com/register",
+        {username, password},
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+      );
 
-      setError("Invalid username or password");
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+      if (axios.isAxiosError(error) && error.response) {
+        if (error.response.status === 400) {
+          console.error("Invalid username or password");
+        } else {
+          console.error("An error occurred during login");
+        }
+      } else {
+        console.error("An unexpected error occurred");
+      }
     }
   };
 
-  return {login, token, error};
+  return {login, register};
 }

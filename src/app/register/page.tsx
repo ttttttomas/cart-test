@@ -1,23 +1,28 @@
 "use client";
 import {useState} from "react";
 
+import useAuth from "../hooks/useAuth";
+
 export default function RegisterPage() {
-  const [email, setEmail] = useState("");
+  const {register} = useAuth();
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(email, password);
+    console.log(username, password);
+    register({username, password});
   };
 
   return (
     <form className="mx-auto flex max-w-32 flex-col items-center gap-4" onSubmit={handleSubmit}>
       <h1 className="text-3xl font-bold">Register</h1>
+      {/* {error && <p className="text-nowrap">{error}</p>} */}
       <input
         className="border border-gray-500 p-2"
         placeholder="Email"
         type="text"
-        onChange={(e) => setEmail(e.target.value)}
+        onChange={(e) => setUsername(e.target.value)}
       />
       <input
         className="border border-gray-500 p-2"
